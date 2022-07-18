@@ -54,7 +54,6 @@ body{
     width: 60px;
     height: 60px;
     border-radius: 50px;
-    
 }
 
 
@@ -96,6 +95,7 @@ body{
     color: rgb(229, 182, 182);
     padding: 0px 300px;
 }
+
 
 .btn1{
     border-radius: 20px;
@@ -314,3 +314,66 @@ body{
     color: white;
 }
 
+/* PAGE DONA */
+
+.headerdona{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+    background-image: url(../img/donaheader.jpg);
+    background-size: 100%;
+    height: 600px;
+    margin: 10px;
+    border-radius: 40px;
+}
+
+.headerdona h1{
+    font-size: 80px;
+    color: white;
+    padding-top: 80px;
+    font-family: cursive;
+    transition: 0.4s;
+}
+
+.headerdona h1:hover{
+    color: rgb(217, 176, 176);
+
+}
+
+.headerdona h4{
+    font-size: 30px;
+    text-align: center;
+    color: wheat;
+}
+
+.headerdona h6{
+    font-size: 20px;
+    text-align: center;
+    color: rgb(229, 182, 182);
+    padding: 0px 300px;
+}
+
+.carrito{
+    width: 50px;
+    height: 50px;
+    border-radius: 10px;
+    position: relative;
+}
+
+
+
+.producto{
+    font-size: 20px;
+    color: red;
+}
+
+.donaciones{
+    font-size: 20px;
+    color: red;
+}
+
+h2{
+    font-size: 40px;
+    color: blue;
+}

@@ -1,6 +1,6 @@
 
 class producto {
-    constructor(id,nombre,detalle,categoria,subcategoria,precio,stock) { //img (adentro -PREGUNTAR SI SE DECKLARA O NO-)
+    constructor(id,nombre,detalle,categoria,subcategoria,precio,stock) { //img (adentro -PREGUNTAR SI SE DECLARA O NO-)
         this.id = id;
         this.nombre = nombre;
         this.detalle = detalle;
@@ -8,13 +8,13 @@ class producto {
         this.subcategoria = subcategoria;
         this.precio = precio;
         this.stock = stock;
-        //this.img = img;
+        this.img = img;
     };
 };
 
 
 class rewardDonaciones {
-    constructor(precio, coins) { //img (adentro -PREGUNTAR SI SE DECKLARA O NO-)
+    constructor(precio, coins) { //img (adentro -PREGUNTAR SI SE DECLARA O NO-)
         this.precio = precio;
         this.coins = coins;
         //this.img = img;
@@ -41,7 +41,7 @@ const listaProductos = [
         subcategoria: "A",
         precio: 1500,
         stock: 1000,
-        //img: "",
+        img: "./img/darkcrystal.png"
     },
     {
         id: 2,
@@ -355,41 +355,92 @@ const listaDonaciones = [
 
 
 
+// const agregarProd = () => {
+//     let id = parseInt(prompt("ID del producto"));
+//     let nombre = prompt("Nombre del producto");
+//     let detalle = prompt("Detalle del producto");
+//     let categoria = prompt("Categoria del producto");
+//     let subcategoria = prompt("Subcategoria del producto");
+//     let precio = parseFloat(prompt("Precio del producto"));
+//     let stock = parseInt(prompt("Stock del producto"));
+//     let prod = new producto(id, nombre, detalle, categoria, subcategoria, precio, stock);
+//     listaProductos.push(prod);
+//     console.log(listaProductos);
+
+//     listaProductos.push(prod);
+
+//     console.log(listaProductos);
+// }
+
+// for( let producto of listaProductos) {
+//     console.log(`Este producto es ${producto.nombre}, su ID es ${producto.id}, detalle ${producto.detalle}, categoria ${producto.categoria}, subcategoria ${producto.subcategoria}, precio ${producto.precio}, stock ${producto.stock}`);
+// }
+
+
+
+// const agregarDonacion = () => {
+//     let precio = parseFloat(prompt("Agregar precio de la donacion"))
+//     let coins = parseInt(prompt("Agregar Coins por donacion"))
+//     let dona = new rewardDonaciones(precio, coins);
+//     listaDonaciones.push(dona);
+//     console.log(listaDonaciones);
+
+//     listaDonaciones.push(dona);
+
+//     console.log(listaDonaciones);
+// }
+
+// for( let rewardDonaciones of listaDonaciones) {
+//     console.log(`La donacion es de $${rewardDonaciones.precio} y su reward es de ${rewardDonaciones.coins} coins`);
+// }
+
+
 const agregarProd = () => {
-    let id = parseInt(prompt("ID del producto"));
-    let nombre = prompt("Nombre del producto");
-    let detalle = prompt("Detalle del producto");
-    let categoria = prompt("Categoria del producto");
-    let subcategoria = prompt("Subcategoria del producto");
-    let precio = parseFloat(prompt("Precio del producto"));
-    let stock = parseInt(prompt("Stock del producto"));
-    let prod = new producto(id, nombre, detalle, categoria, subcategoria, precio, stock);
-    listaProductos.push(prod);
-    console.log(listaProductos);
-
-    listaProductos.push(prod);
-
-    console.log(listaProductos);
+    let id = parseInt(document.querySelector("#id").value);
+    let nombre = document.querySelector("#nombre").value; //en un input con ID nombre
+    let detalle = document.querySelector("#detalle").value;
+    let categoria =  document.querySelector("#categoria").value;
+    let subcategoria =  document.querySelector("#subcategoria").value;
+    let precio = parseFloat(document.querySelector("#precio").value);
+    let stock = parseInt( document.querySelector("#stock").value);
+    
+    let productoNuevo = new producto(id, nombre, detalle, categoria, subcategoria, precio, stock);
+    listaProductos.push(productoNuevo);
+    return productoNuevo;
 }
 
-for( let producto of listaProductos) {
-    console.log(`Este producto es ${producto.nombre}, su ID es ${producto.id}, detalle ${producto.detalle}, categoria ${producto.categoria}, subcategoria ${producto.subcategoria}, precio ${producto.precio}, stock ${producto.stock}`);
-}
+listaProductos.forEach(el => {
+    let nodo = document.createElement("div");
+    nodo.className= "producto"
+    nodo.setAttribute("id", el.id)
+    nodo.innerHTML = `<p>${el.id}</p>
+                    <p>${el.img}</p>
+                    <h3>${el.nombre}</h3>
+                    <p>${el.detalle}</p>
+                    <p>${el.categoria}</p>
+                    <p>${el.subcategoria}</p>
+                    <p>${el.precio}</p>
+                    <p>${el.stock}</p>`;
+
+    document.getElementById("productos").appendChild(nodo);
+})
 
 
 
 const agregarDonacion = () => {
-    let precio = parseFloat(prompt("Agregar precio de la donacion"))
-    let coins = parseInt(prompt("Agregar Coins por donacion"))
+    let precio = parseInt(document.querySelector("#precio").value);
+    let coins = parseInt(document.querySelector("#coins").value);
+
     let dona = new rewardDonaciones(precio, coins);
     listaDonaciones.push(dona);
-    console.log(listaDonaciones);
-
-    listaDonaciones.push(dona);
-
-    console.log(listaDonaciones);
+    return dona;
 }
 
-for( let rewardDonaciones of listaDonaciones) {
-    console.log(`La donacion es de $${rewardDonaciones.precio} y su reward es de ${rewardDonaciones.coins} coins`);
-}
+listaDonaciones.forEach(el => {
+    let nodo2 = document.createElement("div");
+    nodo2.className= "donaciones"
+    nodo2.innerHTML = `<p>${el.precio}</p>
+                    <h3>${el.coins}</h3>`;
+
+    document.getElementById("donaciones").appendChild(nodo2);
+})
