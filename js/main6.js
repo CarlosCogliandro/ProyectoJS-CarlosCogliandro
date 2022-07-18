@@ -444,3 +444,26 @@ listaDonaciones.forEach(el => {
 
     document.getElementById("donaciones").appendChild(nodo2);
 })
+
+
+
+// EVENTOS
+
+// Submit (La idea es buscar el elemento solicitado por el usuario)
+
+let miFormulario = document.getElementById("formulario");
+miFormulario.addEventListener("submit", validarFormulario);
+
+function validarFormulario(e){
+    e.preventDefault();
+    console.log("Buscando lo pedido");
+}
+
+
+// Input (Para que vaya dando opciones a medida que voy tipeando)
+
+let InputText = document.querySelector("#nombre");
+
+InputText.addEventListener("input", ()=>{
+    console.log(`Estas buscando: ${InputText.value}`);
+})
