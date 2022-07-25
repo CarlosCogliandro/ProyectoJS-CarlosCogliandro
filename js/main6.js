@@ -324,8 +324,8 @@ const mostrarProductos = (listaProductos) =>{
     const productsContainer = document.getElementById('product-container');
     listaProductos.forEach(product => {
         const card = document.createElement('card');
-        card.innerHTML +=   `<div class="card" style:"width: 18rem>
-                            <img src="${product.img}" class="card-img-top" alt="..."
+        card.innerHTML += `<div class="card">
+                                <img src="${product.img}" class="card-img-top" alt="..."
                                 <div class="card-body">
                                     <h5 class="card-tittle">${product.nombre}</h5>
                                     <p id="stock" class="card-text">${product.detalle}</p>
@@ -339,12 +339,47 @@ const mostrarProductos = (listaProductos) =>{
         const button = document.getElementById(`button${product.id}`);
         button.addEventListener('click', ()=>{
             cart(product.id);
-            alert(`Agregaste ${product.nombre}`)
+            // alert(`Agregaste ${product.nombre}`)
         })
     })
 };
 
 mostrarProductos(listaProductos);
+
+
+
+
+// EVENTOS
+
+// Submit (La idea es buscar el elemento solicitado por el usuario)
+
+let miFormulario = document.getElementById("formulario");
+miFormulario.addEventListener("submit", validarFormulario);
+
+function validarFormulario(e){
+    e.preventDefault();
+    console.log("Buscando lo pedido");
+}
+
+
+// Input (Para que vaya dando opciones a medida que voy tipeando)
+
+let InputText = document.getElementById("nombre");
+
+InputText.addEventListener("input", ()=>{
+    console.log(`Estas buscando: ${InputText.value}`);
+})
+
+
+
+
+
+
+
+
+
+
+
 
 
 
@@ -369,289 +404,6 @@ mostrarProductos(listaProductos);
 //     };
 // };
 
-
-// const listaProductos = [
-//     {
-//         id: 1,
-//         nombre: "Set Dark Crystal Robe",
-//         detalle: "Set Robe",
-//         categoria: "set",
-//         subcategoria: "A",
-//         precio: 1500,
-//         stock: 1000,
-//         img: "../img/set/darkcrystal.png"
-//     },
-//     {
-//         id: 2,
-//         nombre: "Set Majestic Robe",
-//         detalle: "Set Robe",
-//         categoria: "set",
-//         subcategoria: "A",
-//         precio: 1500,
-//         stock: 1000,
-//         img: "./img/set/majesticrobe.png",
-//     },
-//     {
-//         id: 3,
-//         nombre: "Set Majestic Light",
-//         detalle: "Set Light",
-//         categoria: "set",
-//         subcategoria: "A",
-//         precio: 1500,
-//         stock: 1000,
-//         img: "./img/set/majesticlight.png",
-//     },
-//     {
-//         id: 4,
-//         nombre: "Set Majestic Heavy",
-//         detalle: "Set Heavy",
-//         categoria: "set",
-//         subcategoria: "A",
-//         precio: 1500,
-//         stock: 1000,
-//         img: "./img/set/majesticheavy.png",
-//     },
-//     {
-//         id: 5,
-//         nombre: "Set Nightmare Light",
-//         detalle: "Set Light",
-//         categoria: "set",
-//         subcategoria: "A",
-//         precio: 1500,
-//         stock: 1000,
-//         img: "./img/set/nightmarelight.png",
-//     },
-//     {
-//         id: 6,
-//         nombre: "Set Nightmare Heavy",
-//         detalle: "Set Heavy",
-//         categoria: "set",
-//         subcategoria: "A",
-//         precio: 1500,
-//         stock: 1000,
-//         img: "./img/set/nightmareheavy.png",
-//     },
-//     {
-//         id: 7,
-//         nombre: "Set Tallum Heavy",
-//         detalle: "Set Heavy",
-//         categoria: "set",
-//         subcategoria: "A",
-//         precio: 1500,
-//         stock: 1000,
-//         img: "./img/set/tallumlight.png",
-//     },
-//     {
-//         id: 8,
-//         nombre: "Set Draconic",
-//         detalle: "Set Light",
-//         categoria: "set",
-//         subcategoria: "S",
-//         precio: 4000,
-//         stock: 1000,
-//         img: "./img/set/draconic.png",
-//     },
-//     {
-//         id: 9,
-//         nombre: "Set Imperial Crusader",
-//         detalle: "Set Heavy",
-//         categoria: "set",
-//         subcategoria: "S",
-//         precio: 4000,
-//         stock: 1000,
-//         img: "./img/set/imperialcrusader.png",
-//     },
-//     {
-//         id: 10,
-//         nombre: "Set Major Arcana",
-//         detalle: "Set Robe",
-//         categoria: "set",
-//         subcategoria: "S",
-//         precio: 4000,
-//         stock: 1000,
-//         img: "./img/set/majorarcana.png",
-//     },
-//     {
-//         id: 11,
-//         nombre: "Arcana Mace",
-//         detalle: "Weapon S",
-//         categoria: "Weapons",
-//         subcategoria: "S",
-//         precio: 3500,
-//         stock: 1000,
-//         img: "./img/weapon/arcanamace.png",
-//     },
-//     {
-//         id: 12,
-//         nombre: "Draconic Bow",
-//         detalle: "Weapon S",
-//         categoria: "Weapons",
-//         subcategoria: "S",
-//         precio: 3500,
-//         stock: 1000,
-//         img: "./img/weapon/draconicbow.png",
-//     },
-//     {
-//         id: 13,
-//         nombre: "Heavens Divider",
-//         detalle: "Weapon S",
-//         categoria: "Weapons",
-//         subcategoria: "S",
-//         precio: 3500,
-//         stock: 1000,
-//         img: "./img/weapon/heavendivider.png",
-//     },
-//     {
-//         id: 14,
-//         nombre: "Basalt Battlehammer",
-//         detalle: "Weapon S",
-//         categoria: "Weapons",
-//         subcategoria: "S",
-//         precio: 3500,
-//         stock: 1000,
-//         img: "./img/weapon/basaltbattlehammer.png",
-//     },
-//     {
-//         id: 15,
-//         nombre: "Angel Slayer",
-//         detalle: "Weapon S",
-//         categoria: "Weapons",
-//         subcategoria: "S",
-//         precio: 3500,
-//         stock: 1000,
-//         img: "./img/weapon/angelslayer.png",
-//     },
-//     {
-//         id: 16,
-//         nombre: "Tallum Blade*Dark Legion",
-//         detalle: "Weapon S",
-//         categoria: "Weapons",
-//         subcategoria: "S",
-//         precio: 3500,
-//         stock: 1000,
-//         img: "./img/weapon/tallumblade-darklegionedge.png",
-//     },
-//     {
-//         id: 17,
-//         nombre: "Demon Splinter",
-//         detalle: "Weapon S",
-//         categoria: "Weapons",
-//         subcategoria: "S",
-//         precio: 3500,
-//         stock: 1000,
-//         img: "./img/weapon/demonsplinter.png",
-//     },
-//     {
-//         id: 18,
-//         nombre: "Saint Spear",
-//         detalle: "Weapon S",
-//         categoria: "Weapons",
-//         subcategoria: "S",
-//         precio: 3500,
-//         stock: 1000,
-//         img: "./img/weapon/saintspear.png",
-//     },
-//     {
-//         id: 19,
-//         nombre: "Forgotten Blade",
-//         detalle: "Weapon S",
-//         categoria: "Weapons",
-//         subcategoria: "S",
-//         precio: 3500,
-//         stock: 1000,
-//         img: "./img/weapon/forgottenblade.png",
-//     },
-//     {
-//         id: 20,
-//         nombre: "Dragon Slayer",
-//         detalle: "Weapon A",
-//         categoria: "Weapons",
-//         subcategoria: "A",
-//         precio: 3500,
-//         stock: 1000,
-//         img: "./img/weapon/dragonslayer.png",
-//     },
-//     {
-//         id: 21,
-//         nombre: "Elysian",
-//         detalle: "Weapon A",
-//         categoria: "Weapons",
-//         subcategoria: "A",
-//         precio: 2500,
-//         stock: 1000,
-//         img: "./img/weapon/elysian.png",
-//     },
-//     {
-//         id: 22,
-//         nombre: "Soul Bow",
-//         detalle: "Weapon A",
-//         categoria: "Weapons",
-//         subcategoria: "A",
-//         precio: 2500,
-//         stock: 1000,
-//         img: "./img/weapon/soulbow.png",
-//     },
-//     {
-//         id: 23,
-//         nombre: "Soul Separator",
-//         detalle: "Weapon A",
-//         categoria: "Weapons",
-//         subcategoria: "A",
-//         precio: 2500,
-//         stock: 1000,
-//         img: "./img/weapon/soulseparator.png",
-//     },
-//     {
-//         id: 24,
-//         nombre: " Tallum Blade*Damascus",
-//         detalle: "Weapon A",
-//         categoria: "Weapons",
-//         subcategoria: "A",
-//         precio: 2500,
-//         stock: 1000,
-//         img: "./img/weapon/tallumblade-damascus.png",
-//     },
-//     {
-//         id: 25,
-//         nombre: "Dragon Grinder",
-//         detalle: "Weapon A",
-//         categoria: "Weapons",
-//         subcategoria: "A",
-//         precio: 2500,
-//         stock: 1000,
-//         img: "./img/weapon/dragongrinder.png",
-//     },
-//     {
-//         id: 26,
-//         nombre: "Tallum Glaive",
-//         detalle: "Weapon A",
-//         categoria: "Weapons",
-//         subcategoria: "A",
-//         precio: 2500,
-//         stock: 1000,
-//         img: "../img/weapon/tallumglaive.png",
-//     },
-//     {
-//         id: 27,
-//         nombre: "Sword Of Miracles",
-//         detalle: "Weapon A",
-//         categoria: "Weapons",
-//         subcategoria: "A",
-//         precio: 2500,
-//         stock: 1000,
-//         img: "./img/weapon/swordofmiracles.png",
-//     },
-//     {
-//         id: 28,
-//         nombre: "Dark Legion's Edge",
-//         detalle: "Weapon A",
-//         categoria: "Weapons",
-//         subcategoria: "A",
-//         precio: 2500,
-//         stock: 1000,
-//         img: "./img/weapon/darklegionedge.png",
-//     },
-// ]
 
 // // const listaDonaciones = [
 // //     {
@@ -788,26 +540,7 @@ mostrarProductos(listaProductos);
 
 
 
-// // EVENTOS
 
-// // Submit (La idea es buscar el elemento solicitado por el usuario)
-
-// let miFormulario = document.getElementById("formulario");
-// miFormulario.addEventListener("submit", validarFormulario);
-
-// function validarFormulario(e){
-//     e.preventDefault();
-//     console.log("Buscando lo pedido");
-// }
-
-
-// // Input (Para que vaya dando opciones a medida que voy tipeando)
-
-// let InputText = document.querySelector("#nombre");
-
-// InputText.addEventListener("input", ()=>{
-//     console.log(`Estas buscando: ${InputText.value}`);
-// })
 
 
 
