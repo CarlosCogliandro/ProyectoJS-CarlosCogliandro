@@ -1,122 +1,128 @@
-//     // ejemplos de variables
-// let numero = 15
-// let numero2 = 20
-// const anio = 1987
 
-// let numeroProducto = 12
-// console.log(numero)
-// console.log(numero2)
-// numero2 = 21
-// console.log(anio)
+const contenedorProductos = document.getElementById('contenedor-productos')
+const contenedorCarrito = document.getElementById('carrito-contenedor')
+const botonVaciar = document.getElementById('vaciar-carrito')
+const contadorCarrito = document.getElementById('contadorCarrito')
+const cantidad = document.getElementById('cantidad')
+const precioTotal = document.getElementById('precioTotal')
+const cantidadTotal = document.getElementById('cantidadTotal')
 
 
-//     //   puedo guardar textos o numeros
-// let texto1 = "hola mundo"
-// console.log(texto1)     // SIRVE PARA VER LOS RESULTADOS OBTENIDOS
 
-    
-//     // Operaciones con numeros
-// let numero1 = 120
-// let numero20 = 20
-// const NUMERO3 = 10
+let carrito = []
 
-// let resultadoSuma = numero1 + numero20 // 140
-// console.log(resultadoSuma)
-
-// let resultadoResta = numero1 - numero20 // 100
-// console.log(resultadoResta)
-
-// let resultadoMulti = numero1 * NUMERO3 // 1200
-// console.log(resultadoMulti)
-
-// let resultadoDivi = numero1 / numero20 // 6
-// console.log(resultadoDivi)
-
-// let resultadoFinal = resultadoSuma + resultadoResta + resultadoDivi + resultadoMulti // 1446
-// console.log(resultadoFinal) 
-
-    
-//     // Operaciones con texto
-// let texto1 = "hola," //o puedo dejar un espacio despues de la coma
-// let nombre = "carlos"
-// const espacio = " "
-// let saludo = texto1 + " " + nombre
-// console.log(saludo)
-
-// nombre = "hernan"
-// saludo = texto1 + espacio + nombre
-// console.log(saludo)
-
-    
-//     // PROMPT
-// let nombre = prompt("Ingrese su nombre")
-// console.log("hola, " + nombre)
-
-// let numero1 = prompt("Por favor ingrese un nombre")
-// let numero2 = prompt("Ingrese otro numero")
-
-// // lo concatena
-// let resultado = numero1 + numero2
-// console.log("El resultado es: " + resultado)
-
-// // para que lo sume // parsefloat lo suma
-// numero1 = parsefloat(numero1)
-// numero2 = parseFloat(numero2)
-// let resultado = numero1 + numero2
-// console.log("El resultado es: " + resultado)
-
-// // parseint te redondea el numero
-
-
-    // ALERT
-// let nombre = prompt("Ingrese su nombre")
-// alert("hola, " + nombre)
-    
-// let numero1 = prompt("Por favor ingrese un nombre")
-// let numero2 = prompt("Ingrese otro numero")
-// let resultado = numero1 + numero2
-// alert("El resultado es: " + resultado)
-
-// numero1 = parsefloat(numero1)
-// numero2 = parseFloat(numero2)
-// let resultado = numero1 + numero2
-// alert("El resultado es: " + resultado)
-
-
-let variante1
-let variante2
-let operacion
-
-alert("HAGAMOS UNA PRUEBITA MATEMATICA! By CarlosCogliandro")
-
-do {
-    variante1=parseFloat(prompt("Ingresá un numero positivo, negativo o decimal"))
-    variante2=parseFloat(prompt("Ingresá otro numero positivo o negativo o decimal"))
-    operacion=prompt("Ingresá un Simbolo Matematico, como por ejemplo: +,-,*,/")
-    if(isNaN(variante1) || isNaN(variante2)){
-
-        alert("No es una operacion valida")
-
+document.addEventListener('DOMContentLoaded', () => {
+    if (localStorage.getItem('carrito')){
+        carrito = JSON.parse(localStorage.getItem('carrito'))
+        actualizarCarrito()
     }
-} 
+})
 
-while (isNaN(variante1) || isNaN(variante2));
+botonVaciar.addEventListener('click', () => {
+    carrito.length = 0
+    actualizarCarrito()
+})
 
-switch (operacion) {
-    case "+":
-        alert ("La suma de " + variante1 + " y " + variante2 + " es = " + (variante1 + variante2))
-        break;
-    case "-":
-        alert ("La resta de " + variante1 + " y " + variante2 + " es = " + (variante1 - variante2))
-         break;
-    case "*":
-        alert ("La multiplicacion de " + variante1 + " y " + variante2 + " es = " + (variante1 * variante2))
-         break;
-    case "/":
-        alert ("La division de " + variante1 + " y " + variante2 + " es = " + (variante1 / variante2))
-         break
-    default:
-        alert("No es una operacion valida")
-        break;
-    
+
+stockProductos.forEach((producto) => {
+    const div = document.createElement('div')
+    div.classList.add('producto')
+    div.innerHTML = `<div class="card">
+                    <img src="${producto.img}" class="img1 card-img-top" alt="..."
+                    <div class="card-body">
+                    <h5 class="card-tittle">${producto.nombre}</h5>
+                    <p id="stock" class="card-text">${producto.detalle}</p>
+                    <p id="precio" class="card-text">Price: ${producto.precio}</p>
+                    <button id="agregar${producto.id}" class="btn btn-primary boton-agregar">Add to Cart<i class=""fas fa-shopping-cart></i></button>
+                    </div>
+                    </div>`
+                    
+    contenedorProductos.appendChild(div)
+
+    const boton = document.getElementById(`agregar${producto.id}`)
+    boton.addEventListener('click', () => {
+        agregarAlCarrito(producto.id)
+    })
+})
+
+const agregarAlCarrito = (prodId) => {
+
+    const existe = carrito.some (prod => prod.id === prodId)
+
+    if (existe){
+        const prod = carrito.map (prod => { 
+            if (prod.id === prodId){
+                prod.cantidad++
+            }
+        })
+    } else { 
+        const item = stockProductos.find((prod) => prod.id === prodId)
+        carrito.push(item)
+    }
+   
+    actualizarCarrito()
 }
+
+
+const eliminarDelCarrito = (prodId) => {
+    const item = carrito.find((prod) => prod.id === prodId)
+
+    const indice = carrito.indexOf(item)
+
+    carrito.splice(indice, 1)
+    actualizarCarrito()
+    console.log(carrito)
+}
+
+const actualizarCarrito = () => {
+
+    contenedorCarrito.innerHTML = ""
+
+    carrito.forEach((prod) => {
+        const div = document.createElement('div')
+        div.className = ('productoEnCarrito')
+        div.innerHTML = `
+        <p>${prod.nombre}</p>
+        <p>Precio:$${prod.precio}</p>
+        <p>Cantidad: <span id="cantidad">${prod.cantidad}</span></p>
+        <button onclick="eliminarDelCarrito(${prod.id})" class="boton-eliminar"><i class="fas fa-trash-alt"></i></button>
+        `
+
+        contenedorCarrito.appendChild(div)
+        
+        localStorage.setItem('carrito', JSON.stringify(carrito))
+
+    })
+ 
+    contadorCarrito.innerText = carrito.length
+    console.log(carrito)
+    precioTotal.innerText = carrito.reduce((acc, prod) => acc + prod.cantidad * prod.precio, 0)
+}
+
+
+
+
+
+
+
+
+// EVENTOS
+
+// Submit (La idea es buscar el elemento solicitado por el usuario)
+
+let miFormulario = document.getElementById("formulario");
+miFormulario.addEventListener("submit", validarFormulario);
+
+function validarFormulario(e){
+    e.preventDefault();
+    console.log("Buscando lo pedido");
+}
+
+
+// Input (Para que vaya dando opciones a medida que voy tipeando)
+
+let InputText = document.getElementById("nombre");
+
+InputText.addEventListener("input", ()=>{
+    console.log(`Estas buscando: ${InputText.value}`);
+})
