@@ -1,0 +1,173 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body{
+    background-image: url(../img/fondo.png);
+    background-size: cover;   
+}
+
+.navbar1{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    list-style: none;
+    margin: 25px;
+    text-decoration: none;
+    list-style-type: none;
+}
+
+.navbar2{
+    display: flex;
+    text-decoration: none;
+    list-style-type: none;
+}
+
+
+.link{
+    padding: 10px;
+    text-decoration: none;
+    list-style: none;
+    color: rgb(181, 168, 168);
+}
+
+.link:hover{
+    text-decoration: line-through;
+}
+
+.redessociales{
+    display: flex;
+    list-style-type: none;
+   
+}
+
+.redes{
+    height: 35px;
+}
+
+.redes1{
+    padding: 10px;
+}
+
+.chip{
+  border-radius: 5px;
+}
+
+
+.finalizarCompra {
+  background-color: white;
+  padding: 2.5rem;
+  border-radius: 30px;
+}
+
+.finalizarCompra h1 {
+  text-align: center;
+  padding-top: 1rem;
+  border-bottom: 1px solid #21232a;
+  margin-bottom: 2rem;
+}
+
+.finalizarCompra .datosPersonales_finalizarCompra .tarjeta_finalizarCompra {
+  padding: 22px;
+  background-color: #C4C4C4;
+  border-radius: 20px;
+  margin-bottom: 1rem;
+}
+
+.finalizarCompra .datosPersonales_finalizarCompra .tarjeta_finalizarCompra img {
+  width: 54px;
+  margin-bottom: 1rem;
+}
+
+.finalizarCompra .datosPersonales_finalizarCompra .tarjeta_finalizarCompra label {
+  margin-bottom: 2px;
+}
+
+.finalizarCompra .datosPersonales_finalizarCompra .tarjeta_finalizarCompra input {
+  border-top: none;
+  border-left: none;
+  border-right: none;
+  border-bottom: 1px solid #21232a;
+  background: #C4C4C4;
+  margin-bottom: 1rem;
+}
+
+.finalizarCompra .datosPersonales_finalizarCompra .tarjeta_finalizarCompra input:focus {
+  outline: none;
+  border-bottom: 1px solid #0EB1D2;
+}
+
+.finalizarCompra .datosPersonales_finalizarCompra .tarjeta_finalizarCompra .izquierda_tarjeta {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+}
+
+.finalizarCompra .datosPersonales_finalizarCompra .tarjeta_finalizarCompra .izquierda_tarjeta input {
+  font-size: 22px;
+}
+
+.finalizarCompra .datosPersonales_finalizarCompra .tarjeta_finalizarCompra .izquierda_tarjeta input:last-child {
+  width: 15%;
+}
+
+.finalizarCompra .datosPersonales_finalizarCompra .tarjeta_finalizarCompra .derecha_tarjeta {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+}
+
+.finalizarCompra .datosPersonales_finalizarCompra .tarjeta_finalizarCompra .derecha_tarjeta input {
+  width: 80%;
+}
+
+.footer{
+  text-align: center;
+  padding: 30px;
+  color: white;
+  line-height: 8px;
+}
+
+#boton-carrito {
+  border: none;
+  color: royalblue;
+  font-size: 40px;
+  background-color: white;
+  border-radius: 40%;
+  padding: 10px 20px;
+  transition: all .3s;
+}
+
+#boton-carrito:hover {
+  cursor: pointer;
+  color: white;
+  background-color: royalblue;
+}
+
+#boton-carrito:focus {
+  outline: none;
+}
+
+#contenedor-productos {
+  max-width: 1200px;
+  margin: 60px auto;
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+}
+
+

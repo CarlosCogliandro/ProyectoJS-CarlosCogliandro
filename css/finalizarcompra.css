@@ -1,0 +1,88 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body{
+    background-image: url(../img/fondo.png);
+    background-size: cover;   
+}
+
+.navbar{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    list-style: none;
+    margin: 25px;
+}
+
+.navbar1{
+    display: flex;
+    text-decoration: none;
+    list-style-type: none;
+}
+
+
+.link{
+    padding: 10px;
+    text-decoration: none;
+    list-style: none;
+    color: rgb(181, 168, 168);
+}
+
+.link:hover{
+    text-decoration: line-through;
+}
+
+.redessociales{
+    display: flex;
+    list-style-type: none;
+   
+}
+
+.redes{
+    height: 35px;
+}
+
+.redes1{
+    padding: 10px;
+}
+
+.imgaccount{
+    width: 60px;
+    height: 60px;
+    border-radius: 50px;
+}
+
+.header{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    background-image: url(../img/donaheader.jpg);
+    background-size: 100%;
+    height: 600px;
+    margin: 10px;
+    border-radius: 40px;
+}
+
+.header h1{
+    font-size: 80px;
+    color: white;
+    font-family: cursive;
+    transition: 0.4s;
+}
+
+.header h1:hover{
+    color: rgb(217, 176, 176);
+
+}
+
+.footer{
+    text-align: center;
+    padding: 30px;
+    color: white;
+}

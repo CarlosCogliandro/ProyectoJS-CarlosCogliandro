@@ -1,34 +1,48 @@
 
-const contenedorProductos = document.getElementById('contenedor-productos')
-const contenedorCarrito = document.getElementById('carrito-contenedor')
-const botonVaciar = document.getElementById('vaciar-carrito')
-const contadorCarrito = document.getElementById('contadorCarrito')
-const cantidad = document.getElementById('cantidad')
-const precioTotal = document.getElementById('precioTotal')
-const cantidadTotal = document.getElementById('cantidadTotal')
+const contenedorProductos = document.getElementById('contenedor-productos');
+const contenedorCarrito = document.getElementById('carrito-contenedor');
+const botonVaciar = document.getElementById('vaciar-carrito');
+const contadorCarrito = document.getElementById('contadorCarrito');
+const cantidad = document.getElementById('cantidad');
+const precioTotal = document.getElementById('precioTotal');
+const cantidadTotal = document.getElementById('cantidadTotal');
 
+
+class Productos {
+    constructor(id,nombre,detalle,categoria,subcategoria,precio,stock) {
+        this.id = id;
+        this.nombre = nombre;
+        this.cantidad = cantidad;
+        this.detalle = detalle;
+        this.categoria = categoria;
+        this.subcategoria = subcategoria;
+        this.precio = precio;
+        this.stock = stock;
+        this.img = img;
+    }
+}
 
 
 let carrito = []
 
 document.addEventListener('DOMContentLoaded', () => {
     if (localStorage.getItem('carrito')){
-        carrito = JSON.parse(localStorage.getItem('carrito'))
-        actualizarCarrito()
+        carrito = JSON.parse(localStorage.getItem('carrito'));
+        actualizarCarrito();
     }
 })
 
 botonVaciar.addEventListener('click', () => {
     carrito.length = 0
-    actualizarCarrito()
+    actualizarCarrito();
 })
 
 
 stockProductos.forEach((producto) => {
-    const div = document.createElement('div')
-    div.classList.add('producto')
+    const div = document.createElement('div');
+    div.classList.add('producto');
     div.innerHTML = `<div class="card">
-                    <img src="${producto.img}" class="img1 card-img-top" alt="..."
+                    <img src="${producto.img}" class="img1 card-img-top" alt="..."></img>
                     <div class="card-body">
                     <h5 class="card-tittle">${producto.nombre}</h5>
                     <p id="stock" class="card-text">${producto.detalle}</p>
@@ -37,13 +51,35 @@ stockProductos.forEach((producto) => {
                     </div>
                     </div>`
                     
-    contenedorProductos.appendChild(div)
+    contenedorProductos.appendChild(div);
 
-    const boton = document.getElementById(`agregar${producto.id}`)
+    const boton = document.getElementById(`agregar${producto.id}`);
     boton.addEventListener('click', () => {
-        agregarAlCarrito(producto.id)
+        agregarAlCarrito(producto.id);
+
+        // Swal.fire({
+        //     tittle: 'Tu producto fue agregado',
+        //     text: 'Tu producto fue agregado',
+        //     icon: 'success',
+        //     confirmButtonText: 'Cool',  
+        //     timer: '1000'
+        // })
+
+        Toastify({
+            text: "Added to Cart",
+            duration: 3000,
+            newWindow: true,
+            close: true,
+            gravity: "bottom", // `top` or `bottom`
+            position: "right", // `left`, `center` or `right`
+            stopOnFocus: true, // Prevents dismissing of toast on hover
+            className: "toast",
+          }).showToast(); 
+
     })
 })
+
+
 
 const agregarAlCarrito = (prodId) => {
 
@@ -56,8 +92,8 @@ const agregarAlCarrito = (prodId) => {
             }
         })
     } else { 
-        const item = stockProductos.find((prod) => prod.id === prodId)
-        carrito.push(item)
+        const item = stockProductos.find((prod) => prod.id === prodId);
+        carrito.push(item);
     }
    
     actualizarCarrito()
@@ -65,13 +101,13 @@ const agregarAlCarrito = (prodId) => {
 
 
 const eliminarDelCarrito = (prodId) => {
-    const item = carrito.find((prod) => prod.id === prodId)
+    const item = carrito.find((prod) => prod.id === prodId);
 
-    const indice = carrito.indexOf(item)
+    const indice = carrito.indexOf(item);
 
-    carrito.splice(indice, 1)
-    actualizarCarrito()
-    console.log(carrito)
+    carrito.splice(indice, 1);
+    actualizarCarrito();
+    console.log(carrito);
 }
 
 const actualizarCarrito = () => {
@@ -79,29 +115,25 @@ const actualizarCarrito = () => {
     contenedorCarrito.innerHTML = ""
 
     carrito.forEach((prod) => {
-        const div = document.createElement('div')
-        div.className = ('productoEnCarrito')
-        div.innerHTML = `
-        <p>${prod.nombre}</p>
-        <p>Precio:$${prod.precio}</p>
-        <p>Cantidad: <span id="cantidad">${prod.cantidad}</span></p>
-        <button onclick="eliminarDelCarrito(${prod.id})" class="boton-eliminar"><i class="fas fa-trash-alt"></i></button>
-        `
+        const div = document.createElement('div');
+        div.className = ('productoEnCarrito');
+        div.innerHTML = `<img src="${prod.img}" class="img1 card-img-top imgcarrito" alt="..."></img>
+                        <p>${prod.nombre}</p>
+                        <p>Price:$${prod.precio}</p>
+                        <p>Quantity: <span id="cantidad">${prod.cantidad}</span></p>
+                        <button onclick="eliminarDelCarrito(${prod.id})" class="boton-eliminar"><i class="fas fa-trash-alt"></i></button>
+                        `
 
-        contenedorCarrito.appendChild(div)
+        contenedorCarrito.appendChild(div);
         
-        localStorage.setItem('carrito', JSON.stringify(carrito))
+        localStorage.setItem('carrito', JSON.stringify(carrito));
 
     })
  
-    contadorCarrito.innerText = carrito.length
-    console.log(carrito)
-    precioTotal.innerText = carrito.reduce((acc, prod) => acc + prod.cantidad * prod.precio, 0)
+    contadorCarrito.innerText = carrito.length;
+    console.log(carrito);
+    precioTotal.innerText = carrito.reduce((acc, prod) => acc + prod.cantidad * prod.precio, 0);
 }
-
-
-
-
 
 
 
@@ -125,4 +157,4 @@ let InputText = document.getElementById("nombre");
 
 InputText.addEventListener("input", ()=>{
     console.log(`Estas buscando: ${InputText.value}`);
-})
+});
