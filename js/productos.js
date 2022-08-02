@@ -8,7 +8,7 @@ const stockProductos = [
         subcategoria: "A",
         precio: 1500,
         stock: 1000,
-        img: "../img/set/darkcrystal.png"
+        img: "../img/Set/darkcrystal.png"
     },
     {
         id: 2,
@@ -19,7 +19,7 @@ const stockProductos = [
         subcategoria: "A",
         precio: 1500,
         stock: 1000,
-        img: "../img/set/majesticrobe.png",
+        img: "../img/Set/majesticrobe.png",
     },
     {
         id: 3,
@@ -30,7 +30,7 @@ const stockProductos = [
         subcategoria: "A",
         precio: 1500,
         stock: 1000,
-        img: "../img/set/majesticlight.png",
+        img: "../img/Set/majesticlight.png",
     },
     {
         id: 4,
@@ -41,7 +41,7 @@ const stockProductos = [
         subcategoria: "A",
         precio: 1500,
         stock: 1000,
-        img: "../img/set/majesticheavy.png",
+        img: "../img/Set/majesticheavy.png",
     },
     {
         id: 5,
@@ -52,7 +52,7 @@ const stockProductos = [
         subcategoria: "A",
         precio: 1500,
         stock: 1000,
-        img: "../img/set/nightmarishlight.png",
+        img: "../img/Set/nightmarishlight.png",
     },
     {
         id: 6,
@@ -63,7 +63,7 @@ const stockProductos = [
         subcategoria: "A",
         precio: 1500,
         stock: 1000,
-        img: "../img/set/nightmareheavy.png",
+        img: "../img/Set/nightmareheavy.png",
     },
     {
         id: 7,
@@ -74,7 +74,7 @@ const stockProductos = [
         subcategoria: "A",
         precio: 1500,
         stock: 1000,
-        img: "../img/set/tallumheavy.png",
+        img: "../img/Set/tallumheavy.png",
     },
     {
         id: 8,
@@ -85,7 +85,7 @@ const stockProductos = [
         subcategoria: "S",
         precio: 4000,
         stock: 1000,
-        img: "../img/set/draconic.png",
+        img: "../img/Set/draconic.png",
     },
     {
         id: 9,
@@ -96,7 +96,7 @@ const stockProductos = [
         subcategoria: "S",
         precio: 4000,
         stock: 1000,
-        img: "../img/set/imperialcrusader.png",
+        img: "../img/Set/imperialcrusader.png",
     },
     {
         id: 10,
@@ -107,7 +107,7 @@ const stockProductos = [
         subcategoria: "S",
         precio: 4000,
         stock: 1000,
-        img: "../img/set/majorarcana.png",
+        img: "../img/Set/majorarcana.png",
     },
     {
         id: 11,
@@ -118,7 +118,7 @@ const stockProductos = [
         subcategoria: "S",
         precio: 3500,
         stock: 1000,
-        img: "../img/weapon/arcanamace.png",
+        img: "../img/Weapon/arcanamace.png",
     },
     {
         id: 12,
@@ -129,7 +129,7 @@ const stockProductos = [
         subcategoria: "S",
         precio: 3500,
         stock: 1000,
-        img: "../img/weapon/draconicbow.png",
+        img: "../img/Weapon/draconicbow.png",
     },
     {
         id: 13,
@@ -140,7 +140,7 @@ const stockProductos = [
         subcategoria: "S",
         precio: 3500,
         stock: 1000,
-        img: "../img/weapon/heavendivider.png",
+        img: "../img/Weapon/heavendivider.png",
     },
     {
         id: 14,
@@ -151,7 +151,7 @@ const stockProductos = [
         subcategoria: "S",
         precio: 3500,
         stock: 1000,
-        img: "../img/weapon/basaltbattlehammer.png",
+        img: "../img/Weapon/basaltbattlehammer.png",
     },
     {
         id: 15,
@@ -162,7 +162,7 @@ const stockProductos = [
         subcategoria: "S",
         precio: 3500,
         stock: 1000,
-        img: "../img/weapon/angelslayer.png",
+        img: "../img/Weapon/angelslayer.png",
     },
     {
         id: 16,
@@ -173,7 +173,7 @@ const stockProductos = [
         subcategoria: "S",
         precio: 3500,
         stock: 1000,
-        img: "../img/weapon/tallumblade-darklegionedge.png",
+        img: "../img/Weapon/tallumblade-darklegionedge.png",
     },
     {
         id: 17,
@@ -184,7 +184,7 @@ const stockProductos = [
         subcategoria: "S",
         precio: 3500,
         stock: 1000,
-        img: "../img/weapon/demonsplinter.png",
+        img: "../img/Weapon/demonsplinter.png",
     },
     {
         id: 18,
@@ -195,7 +195,7 @@ const stockProductos = [
         subcategoria: "S",
         precio: 3500,
         stock: 1000,
-        img: "../img/weapon/saintspear.png",
+        img: "../img/Weapon/saintspear.png",
     },
     {
         id: 19,
@@ -206,7 +206,7 @@ const stockProductos = [
         subcategoria: "S",
         precio: 3500,
         stock: 1000,
-        img: "../img/weapon/forgottenblade.png",
+        img: "../img/Weapon/forgottenblade.png",
     },
     {
         id: 20,
@@ -217,7 +217,7 @@ const stockProductos = [
         subcategoria: "A",
         precio: 3500,
         stock: 1000,
-        img: "../img/weapon/dragonslayer.png",
+        img: "../img/Weapon/dragonslayer.png",
     },
     {
         id: 21,
@@ -228,7 +228,7 @@ const stockProductos = [
         subcategoria: "A",
         precio: 2500,
         stock: 1000,
-        img: "../img/weapon/elysian.png",
+        img: "../img/Weapon/elysian.png",
     },
     {
         id: 22,
@@ -239,7 +239,7 @@ const stockProductos = [
         subcategoria: "A",
         precio: 2500,
         stock: 1000,
-        img: "../img/weapon/soulbow.png",
+        img: "../img/Weapon/soulbow.png",
     },
     {
         id: 23,
@@ -250,7 +250,7 @@ const stockProductos = [
         subcategoria: "A",
         precio: 2500,
         stock: 1000,
-        img: "../img/weapon/soulseparator.png",
+        img: "../img/Weapon/soulseparator.png",
     },
     {
         id: 24,
@@ -261,7 +261,7 @@ const stockProductos = [
         subcategoria: "A",
         precio: 2500,
         stock: 1000,
-        img: "../img/weapon/tallumblade-damascus.png",
+        img: "../img/Weapon/tallumblade-damascus.png",
     },
     {
         id: 25,
@@ -272,7 +272,7 @@ const stockProductos = [
         subcategoria: "A",
         precio: 2500,
         stock: 1000,
-        img: "../img/weapon/dragongrinder.png",
+        img: "../img/Weapon/dragongrinder.png",
     },
     {
         id: 26,
@@ -283,7 +283,7 @@ const stockProductos = [
         subcategoria: "A",
         precio: 2500,
         stock: 1000,
-        img: "../img/weapon/tallumglaive.png",
+        img: "../img/Weapon/tallumglaive.png",
     },
     {
         id: 27,
@@ -294,7 +294,7 @@ const stockProductos = [
         subcategoria: "A",
         precio: 2500,
         stock: 1000,
-        img: "../img/weapon/swordsofmiracles.png",
+        img: "../img/Weapon/swordsofmiracles.png",
     },
     {
         id: 28,
@@ -305,7 +305,7 @@ const stockProductos = [
         subcategoria: "A",
         precio: 2500,
         stock: 1000,
-        img: "../img/weapon/darklegionedge.png",
+        img: "../img/Weapon/darklegionedge.png",
     },
     {
         id: 29,
