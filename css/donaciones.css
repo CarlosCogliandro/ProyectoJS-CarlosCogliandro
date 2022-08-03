@@ -6,7 +6,8 @@
 
 body{
     background-image: url(../img/fondo.png);
-    background-size: cover;   
+    background-size: cover;
+    background-attachment: fixed;
 }
 
 .navbar{
@@ -196,11 +197,14 @@ body{
 .modal-carrito {
     position: relative;
     background-color: white;
-    min-width: 500px;
+    min-width: 700px;
+    height: 400px;
     padding: 20px;
     margin-top: -100%;
     transition: all .5s;
     line-height: 2.5;
+    overflow-y: scroll;
+    border-radius: 10px;
 }
 
 .modal-active .modal-carrito {
@@ -301,4 +305,39 @@ body{
 
 .toast:hover{
     font-size: 28px;
+}
+
+.buscador{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    align-content: center;
+    padding-top: 20px;;
+}
+
+.inputBuscar{
+    border-radius: 10px;
+    width: 50%;
+    height: 30px;
+}
+
+.boton-buscar {
+    background-color: rgb(0, 42, 166);
+    color: rgb(227, 227, 227);
+    font-size: 15px;
+    font-weight: 700;
+    border: none;
+    border-radius: 10px;
+    width: 10%;
+    transition: .5s;
+}
+
+.boton-buscar:hover {
+    color: white;
+    background-color: royalblue;
+
+}
+
+.texto-buscar{
+    color: white;
 }
