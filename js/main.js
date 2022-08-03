@@ -12,7 +12,6 @@ class Productos {
     constructor(id,nombre,detalle,categoria,subcategoria,precio,stock) {
         this.id = id;
         this.nombre = nombre;
-        this.cantidad = cantidad;
         this.detalle = detalle;
         this.categoria = categoria;
         this.subcategoria = subcategoria;
@@ -37,6 +36,7 @@ botonVaciar.addEventListener('click', () => {
     actualizarCarrito();
 })
 
+// Agregando productos al HTML      
 
 stockProductos.forEach((producto) => {
     const div = document.createElement('div');
@@ -54,6 +54,7 @@ stockProductos.forEach((producto) => {
     contenedorProductos.appendChild(div);
 
     const boton = document.getElementById(`agregar${producto.id}`);
+    
     boton.addEventListener('click', () => {
         agregarAlCarrito(producto.id);
 
@@ -75,6 +76,18 @@ stockProductos.forEach((producto) => {
             stopOnFocus: true, // Prevents dismissing of toast on hover
             className: "toast",
           }).showToast(); 
+
+    
+    
+
+
+
+
+
+
+
+
+
 
     })
 })
@@ -137,24 +150,79 @@ const actualizarCarrito = () => {
 
 
 
+// BUSCADOR POR PRODUCTO   
+
+
+
+const formulario = document.querySelector('#formulario'); 
+const botonBuscar = document.querySelector('#botonBuscar');
+const resultadoBusqueda = document.querySelector('#resultadosBusqueda');
+
+const filtrar = () =>{
+    // console.log(formulario.value);
+    resultadoBusqueda.innerHTML = '';
+
+    const textoUsuario = formulario.value.toLowerCase();
+    
+    for(let produc1 of stockProductos){
+        let nombreBuscar = produc1.nombre.toLowerCase();
+        if(nombreBuscar.indexOf(textoUsuario) !== -1){
+            resultadoBusqueda.classList.add('producto');
+            resultadoBusqueda.innerHTML += `<div class="card">
+                                            <img src="${produc1.img}" class="img1 card-img-top" alt="..."></img>
+                                            <div class="card-body">
+                                            <h5 class="card-tittle">${produc1.nombre}</h5>
+                                            <p id="stock" class="card-text">${produc1.detalle}</p>
+                                            <p id="precio" class="card-text">Price: ${produc1.precio}</p>
+                                            <button id="agregar${produc1.id}" class="btn btn-primary boton-agregar">Add to Cart<i class=""fas fa-shopping-cart></i></button>
+                                            </div>
+                                            </div>`
+        }
+    }
+
+    if(resultadoBusqueda.innerHTML === ''){
+        resultadoBusqueda.innerHTML += `<li>Not found...</li>
+                                        ` 
+    }
+}
+
+botonBuscar.addEventListener('click', filtrar)
+
+formulario.addEventListener('keyup', filtrar);
+
+filtrar();
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 // EVENTOS
 
 // Submit (La idea es buscar el elemento solicitado por el usuario)
 
-let miFormulario = document.getElementById("formulario");
-miFormulario.addEventListener("submit", validarFormulario);
+// let miFormulario = document.getElementById("formulario");
+// miFormulario.addEventListener("submit", validarFormulario);
 
-function validarFormulario(e){
-    e.preventDefault();
-    console.log("Buscando lo pedido");
-}
+// function validarFormulario(e){
+//     e.preventDefault();
+//     console.log("Buscando lo pedido");
+// }
 
 
-// Input (Para que vaya dando opciones a medida que voy tipeando)
+// // Input (Para que vaya dando opciones a medida que voy tipeando)
 
-let InputText = document.getElementById("nombre");
+// let InputText = document.getElementById("nombre");
 
-InputText.addEventListener("input", ()=>{
-    console.log(`Estas buscando: ${InputText.value}`);
-});
+// InputText.addEventListener("input", ()=>{
+//     console.log(`Estas buscando: ${InputText.value}`);
+// });

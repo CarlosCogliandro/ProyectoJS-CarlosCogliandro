@@ -50,10 +50,6 @@ body{
     padding: 10px;
 }
 
-
-
-
-
 .imgaccount{
     width: 60px;
     height: 60px;
@@ -327,9 +323,6 @@ body{
     color: white;
 }
 
-
-
-
 .card12{
     width: 250px;
     border-radius: 10px;
@@ -375,3 +368,8 @@ body{
     
 }
 
+
+/* MEDIA QUERY */
+@media screen and (max-width: 600px) {
+  
+}
