@@ -341,3 +341,8 @@ body{
 .texto-buscar{
     color: white;
 }
+
+.busquedaInexistente{
+    Color: red;
+    font-size: 80px;
+}

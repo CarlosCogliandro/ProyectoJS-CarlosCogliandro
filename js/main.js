@@ -1,14 +1,7 @@
 
-const contenedorProductos = document.getElementById('contenedor-productos');
-const contenedorCarrito = document.getElementById('carrito-contenedor');
-const botonVaciar = document.getElementById('vaciar-carrito');
-const contadorCarrito = document.getElementById('contadorCarrito');
-const cantidad = document.getElementById('cantidad');
-const precioTotal = document.getElementById('precioTotal');
-const cantidadTotal = document.getElementById('cantidadTotal');
+//   CLASES
 
-
-class Productos {
+class Producto {
     constructor(id, nombre, detalle, categoria, subcategoria, precio, stock) {
         this.id = id;
         this.nombre = nombre;
@@ -22,22 +15,29 @@ class Productos {
 }
 
 
-let carrito = []
+//   VARIABLES
 
-document.addEventListener('DOMContentLoaded', () => {
-    if (localStorage.getItem('carrito')) {
-        carrito = JSON.parse(localStorage.getItem('carrito'));
-        actualizarCarrito();
-    }
-})
+const contenedorProductos = document.getElementById('contenedor-productos');
+const contenedorCarrito = document.getElementById('carrito-contenedor');
+const botonVaciar = document.getElementById('vaciar-carrito');
+const contadorCarrito = document.getElementById('contadorCarrito');
+const cantidad = document.getElementById('cantidad');
+const precioTotal = document.getElementById('precioTotal');
+const cantidadTotal = document.getElementById('cantidadTotal');
 
-botonVaciar.addEventListener('click', () => {
-    carrito.length = 0
-    actualizarCarrito();
-})
+let stockProductos;
+let carrito = [];
+
+// Buscador pro producto
+const formulario = document.querySelector('#formulario');
+const botonBuscar = document.querySelector('#botonBuscar');
 
 
-function mostrarProducto(producto) {
+//   FUNCIONES
+
+// CREO UNA CARD PARA LUEGO GENERARLE TODAS LAS DEMAS
+
+function mostrarProducto(producto) {    
     const div = document.createElement('div');
     div.classList.add('producto');
     div.innerHTML = `<div class="card">
@@ -54,22 +54,26 @@ function mostrarProducto(producto) {
 }
 
 
+// FUNCION DEL BOTON PARA AGREGAR PRODUCTOS AL CARRITO
+
 function capturarBotonAgregar(producto) {
     const boton = document.getElementById(`agregar${producto.id}`);
-
-    boton.addEventListener('click', () => {
-        
-    })
+        boton.addEventListener('click', () => {
+        })
 }
 
 
-function mostrarTodosLosProductos() {
+// EL FOR..EACH PARA GENERAR TODAS LAS CARD
+
+function mostrarTodosLosProductos(stockProductos) {
     stockProductos.forEach((producto) => {
-        mostrarProducto(producto)
-        capturarBotonAgregar(producto)
+        mostrarProducto(producto);
+        capturarBotonAgregar(producto);
     })
 }
 
+
+// Agrego productos al carrito
 
 const agregarAlCarrito = (prodId) => {
     const existe = carrito.some(prod => prod.id === prodId)
@@ -89,15 +93,7 @@ const agregarAlCarrito = (prodId) => {
 }
 
 
-const eliminarDelCarrito = (prodId) => {
-    const item = carrito.find((prod) => prod.id === prodId);
-
-    const indice = carrito.indexOf(item);
-
-    carrito.splice(indice, 1);
-    actualizarCarrito();
-    console.log(carrito);
-}
+// ACTUALIZACION DE CARRITO 
 
 const actualizarCarrito = () => {
     contenedorCarrito.innerHTML = ""
@@ -124,52 +120,43 @@ const actualizarCarrito = () => {
 }
 
 
-// BUSCADOR POR PRODUCTO   
-
-const formulario = document.querySelector('#formulario');
-// const botonBuscar = document.querySelector('#botonBuscar');      LO DEJO COMENTADO PORQUE BUSCO DIRECTAMENTE POR KEYUP
-
-const filtrar = () => {
-    contenedorProductos.innerHTML = '';
-
-    const textoUsuario = formulario.value.toLowerCase();
-
-    for (let produc1 of stockProductos) {
-        let nombreBuscar = produc1.nombre.toLowerCase();
-        if (nombreBuscar.indexOf(textoUsuario) !== -1) {
-           mostrarProducto(produc1)
-           capturarBotonAgregar(produc1)
-        }
+document.addEventListener('DOMContentLoaded', () => {
+    if (localStorage.getItem('carrito')) {
+        carrito = JSON.parse(localStorage.getItem('carrito'));
+        actualizarCarrito();
     }
+})
 
-    if (contenedorProductos.innerHTML === '') {
-        contenedorProductos.innerHTML += `<li>Not found...</li>
-                                        `
-    }
 
+// Elimino productos del carrito
+
+const eliminarDelCarrito = (prodId) => {
+    const item = carrito.find((prod) => prod.id === prodId);
+
+    const indice = carrito.indexOf(item);
+
+    carrito.splice(indice, 1);
+    actualizarCarrito();
+    console.log(carrito);
 }
 
-// botonBuscar.addEventListener('click', filtrar)                   LO DEJO COMENTADO PORQUE BUSCO DIRECTAMENTE POR KEYUP
 
-formulario.addEventListener('keyup', filtrar);
+// VACIAR CARRITO
 
-filtrar();
+botonVaciar.addEventListener('click', () => {
+    carrito.length = 0;
+    actualizarCarrito();
+})
 
 
+// Boton para agregar productos al carrito, solo quedando activo el boton para que no se sobresature la pagina con las 40 card que tengo disponibles
 
 contenedorProductos.addEventListener("click", (e)=>{
     if(e.target.classList.contains("boton-agregar")){
-        let id=parseInt(e.target.id.substring(7))
-        console.log(id)
+        let id = parseInt(e.target.id.substring(7))
         agregarAlCarrito(id);
 
-        // Swal.fire({
-        //     tittle: 'Tu producto fue agregado',
-        //     text: 'Tu producto fue agregado',
-        //     icon: 'success',
-        //     confirmButtonText: 'Cool',  
-        //     timer: '1000'
-        // })
+        // LIBRERIA TOASTIFY PARA MENSAJE DEL PRODUCTO AGREGADO
 
         Toastify({
             text: "Added to Cart",
@@ -185,29 +172,41 @@ contenedorProductos.addEventListener("click", (e)=>{
 })
 
 
+// BUSCADOR POR PRODUCTO   
+
+const filtrar = () => {
+    contenedorProductos.innerHTML = '';
+
+    const textoUsuario = formulario.value.toLowerCase();
+
+    for (let produc1 of stockProductos) {
+        let nombreBuscar = produc1.nombre.toLowerCase();
+        if (nombreBuscar.indexOf(textoUsuario) !== -1) {
+           mostrarProducto(produc1);
+           capturarBotonAgregar(produc1);
+        }
+    }
+
+    if (contenedorProductos.innerHTML === '') {
+        contenedorProductos.innerHTML += `<h1 class="busquedaInexistente">Not found...</h1>
+                                        `
+    }
+
+}
+
+botonBuscar.addEventListener('click', filtrar);             // uso esta porque keyup es molesta          
+
+// formulario.addEventListener('keyup', filtrar);           // filtrar la busqueda a medida que vamos escribiendo
 
 
 
 
+//   FETCH
 
-
-// EVENTOS
-
-// Submit (La idea es buscar el elemento solicitado por el usuario)
-
-// let miFormulario = document.getElementById("formulario");
-// miFormulario.addEventListener("submit", validarFormulario);
-
-// function validarFormulario(e){
-//     e.preventDefault();
-//     console.log("Buscando lo pedido");
-// }
-
-
-// // Input (Para que vaya dando opciones a medida que voy tipeando)
-
-// let InputText = document.getElementById("nombre");
-
-// InputText.addEventListener("input", ()=>{
-//     console.log(`Estas buscando: ${InputText.value}`);
-// });
+const obtenerDatos = async () => {
+    let response = await fetch('../data/productos.json');
+    stockProductos = await response.json();
+    mostrarTodosLosProductos(stockProductos);
+    }
+    
+    obtenerDatos();
