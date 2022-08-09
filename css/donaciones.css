@@ -307,6 +307,21 @@ body{
     font-size: 28px;
 }
 
+.toastdelete{
+    color: white;
+    font-size: 25px;
+    border-radius: 10px;
+    background-image: linear-gradient(to right, rgb(183, 47, 47), rgb(229, 22, 22));
+    text-shadow: white;
+    border: 1px solid rgb(205, 156, 156);
+    transition: .3;
+}
+
+.toastdelete:hover{
+    font-size: 28px;
+}
+
+
 .buscador{
     display: flex;
     flex-direction: row;

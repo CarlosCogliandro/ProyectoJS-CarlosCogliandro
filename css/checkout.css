@@ -2,6 +2,7 @@
     margin: 0;
     padding: 0;
     box-sizing: border-box;
+    
 }
 
 body{
@@ -56,7 +57,6 @@ body{
   border-radius: 5px;
 }
 
-
 .finalizarCompra {
   background-color: white;
   padding: 2.5rem;
@@ -68,6 +68,7 @@ body{
   padding-top: 1rem;
   border-bottom: 1px solid #21232a;
   margin-bottom: 2rem;
+  font-size: 50px;
 }
 
 .finalizarCompra .datosPersonales_finalizarCompra .tarjeta_finalizarCompra {
@@ -95,11 +96,6 @@ body{
   margin-bottom: 1rem;
 }
 
-.finalizarCompra .datosPersonales_finalizarCompra .tarjeta_finalizarCompra input:focus {
-  outline: none;
-  border-bottom: 1px solid #0EB1D2;
-}
-
 .finalizarCompra .datosPersonales_finalizarCompra .tarjeta_finalizarCompra .izquierda_tarjeta {
   display: -webkit-box;
   display: -ms-flexbox;
@@ -111,11 +107,11 @@ body{
 }
 
 .finalizarCompra .datosPersonales_finalizarCompra .tarjeta_finalizarCompra .izquierda_tarjeta input {
-  font-size: 22px;
+  font-size: 25px;
 }
 
 .finalizarCompra .datosPersonales_finalizarCompra .tarjeta_finalizarCompra .izquierda_tarjeta input:last-child {
-  width: 15%;
+  width: 60px;
 }
 
 .finalizarCompra .datosPersonales_finalizarCompra .tarjeta_finalizarCompra .derecha_tarjeta {
@@ -132,7 +128,7 @@ body{
 }
 
 .finalizarCompra .datosPersonales_finalizarCompra .tarjeta_finalizarCompra .derecha_tarjeta input {
-  width: 80%;
+  width: 3%;
 }
 
 .footer{
@@ -142,32 +138,69 @@ body{
   line-height: 8px;
 }
 
-#boton-carrito {
-  border: none;
-  color: royalblue;
-  font-size: 40px;
-  background-color: white;
-  border-radius: 40%;
-  padding: 10px 20px;
-  transition: all .3s;
+.imgaccount{
+  width: 60px;
+  height: 60px;
+  border-radius: 50px;
 }
 
-#boton-carrito:hover {
-  cursor: pointer;
-  color: white;
-  background-color: royalblue;
-}
-
-#boton-carrito:focus {
-  outline: none;
-}
-
-#contenedor-productos {
-  max-width: 1200px;
-  margin: 60px auto;
+.finalizar_compra{
   display: flex;
-  justify-content: space-between;
-  flex-wrap: wrap;
+  flex-direction: row;
+  background-color: aliceblue;
+  border-radius: 30px;
+  
 }
 
+.checkoutBTN{
+  display: none;
+}
 
+.productoEnCarrito{
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  padding: 10px;
+}
+
+.imgcarrito{
+  width: 10%;
+}
+
+.boton-eliminar {
+  background-color: white;
+  color: red;
+  border: none;
+  font-size: 20px;
+}
+
+.precioProducto{
+  margin: 20px;
+  text-align: center;
+  font-size: 40px;
+  font-weight: bold;
+}
+
+.btn{
+  list-style: none;
+  text-decoration: none;
+  border: 1px solid black;
+  border-radius: 10px;
+  padding: 10px;
+  color: black;
+  font-weight: bold;
+}
+
+.form-group1{
+  margin: 30px;
+  text-align: center;
+}
+
+.formulario_etiquetas{
+padding: 10px;
+}
+
+.cuotas{
+  display: flex;
+  flex-direction: row;
+}

@@ -93,7 +93,7 @@ const agregarAlCarrito = (prodId) => {
 }
 
 
-// ACTUALIZACION DE CARRITO 
+// MUESTRA LOS PRODUCTOS EN EL CARRITO
 
 const actualizarCarrito = () => {
     contenedorCarrito.innerHTML = ""
@@ -137,7 +137,19 @@ const eliminarDelCarrito = (prodId) => {
 
     carrito.splice(indice, 1);
     actualizarCarrito();
-    console.log(carrito);
+    
+    // LIBRERIA TOASTIFY PARA MENSAJE DEL PRODUCTO ELIMINADO
+    
+    Toastify({
+        text: "Deleted to Cart",
+        duration: 3000,
+        newWindow: true,
+        close: true,
+        gravity: "top", // `top` or `bottom`
+        position: "right", // `left`, `center` or `right`
+        stopOnFocus: true, // Prevents dismissing of toast on hover
+        className: "toastdelete",
+    }).showToast();
 }
 
 
@@ -199,8 +211,6 @@ botonBuscar.addEventListener('click', filtrar);             // uso esta porque k
 // formulario.addEventListener('keyup', filtrar);           // filtrar la busqueda a medida que vamos escribiendo
 
 
-
-
 //   FETCH
 
 const obtenerDatos = async () => {
@@ -210,3 +220,8 @@ const obtenerDatos = async () => {
     }
     
     obtenerDatos();
+
+
+
+    // PAGINA FINALIZAR COMPRA
+
