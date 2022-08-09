@@ -1,7 +1,7 @@
-let nav = document.getElementById('navDona');
+let navDonaciones = document.getElementById('navDona');
 
 
-// NAVBAR
+// NAVBAR DONACIONES
 
 function mostrarNavDona() {
     const dona1 = document.createElement('dona1');
@@ -29,13 +29,10 @@ function mostrarNavDona() {
                         <button id="boton-carrito"> <i class="fas fa-shopping-cart"></i><span id="contadorCarrito">0</span></button>
                         `
 
-    nav.appendChild(dona1);
+    navDonaciones.appendChild(dona1);
 }
 
 mostrarNavDona();
-
-
-
 
 
 

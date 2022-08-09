@@ -1,10 +1,11 @@
-let nav = document.getElementById('navIndex')
-let header = document.getElementById('headerIndex')
-let main = document.getElementById('mainIndex')
-let footer = document.getElementById('footerIndex')
+let navIndex = document.getElementById('navIndex');
+let header = document.getElementById('headerIndex');
+let main = document.getElementById('mainIndex');
+let footer = document.getElementById('footerIndex');
 
 
-// NAVBAR
+
+// NAVBAR INDEX
 
 function mostrarNav(){
     const index1 = document.createElement('index1');
@@ -34,7 +35,7 @@ function mostrarNav(){
                         </div>
                         `
 
-    nav.appendChild(index1);
+    navIndex.appendChild(index1);
 }
 
 mostrarNav();
