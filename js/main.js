@@ -1,5 +1,5 @@
 
-//   CLASES
+//   CLASE
 
 class Producto {
     constructor(id, nombre, detalle, categoria, subcategoria, precio, stock) {
@@ -28,7 +28,7 @@ const cantidadTotal = document.getElementById('cantidadTotal');
 let stockProductos;
 let carrito = [];
 
-// Buscador pro producto
+// Buscador por producto
 const formulario = document.querySelector('#formulario');
 const botonBuscar = document.querySelector('#botonBuscar');
 
@@ -93,7 +93,7 @@ const agregarAlCarrito = (prodId) => {
 }
 
 
-// MUESTRA LOS PRODUCTOS EN EL CARRITO
+// Muestra los productos en el carrito
 
 const actualizarCarrito = () => {
     contenedorCarrito.innerHTML = ""
@@ -132,10 +132,9 @@ document.addEventListener('DOMContentLoaded', () => {
 
 const eliminarDelCarrito = (prodId) => {
     const item = carrito.find((prod) => prod.id === prodId);
-
     const indice = carrito.indexOf(item);
-
     carrito.splice(indice, 1);
+    localStorage.setItem('carrito', JSON.stringify(carrito)); // ELIMINA DEL CARRITO Y CUANDO REFRESCO NO LAS VUEÑVE A PONER
     actualizarCarrito();
     
     // LIBRERIA TOASTIFY PARA MENSAJE DEL PRODUCTO ELIMINADO
@@ -220,8 +219,4 @@ const obtenerDatos = async () => {
     }
     
     obtenerDatos();
-
-
-
-    // PAGINA FINALIZAR COMPRA
 
