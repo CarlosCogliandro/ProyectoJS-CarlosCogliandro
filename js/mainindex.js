@@ -1,3 +1,7 @@
+
+// ESTABA IMPLEMENTADO PERO LO SAQUE
+
+
 let navIndex = document.getElementById('navIndex');
 let header = document.getElementById('headerIndex');
 let main = document.getElementById('mainIndex');
@@ -10,8 +14,7 @@ let footer = document.getElementById('footerIndex');
 function mostrarNav(){
     const index1 = document.createElement('index1');
     index1.classList.add('navbar');
-    index1.innerHTML =  `<div>
-                        <ul class="navbar1">
+    index1.innerHTML =  `<ul class="navbar1">
                             <li><a class="link" href="./index.html">HOME</a></li>
                             <li><a class="link" href="">REWARDS</a></li>
                             <li><a class="link" href="">RULES</a></li>
@@ -48,7 +51,7 @@ function mostrarHeader() {
     index2.classList.add('header');
     index2.innerHTML =   `<h1>L2 Twisters</h1>
                         <h4>INTERLUDE X10 100% RETAIL SERVER</h4>
-                        <h6>The server makes you feel like playing back in 2004, much nostalgia, very populated server, 2 years online already. 
+                        <h6 class="header_h6">The server makes you feel like playing back in 2004, much nostalgia, very populated server, 2 years online already. 
                             Also for those who like competitive playing and modern UI you can play with our new Classic Client.</h6>
                         <a href=""><button class="btn1 parpadeo">JOIN US</button></a>
 

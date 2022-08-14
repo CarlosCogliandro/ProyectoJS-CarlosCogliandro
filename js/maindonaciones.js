@@ -1,3 +1,7 @@
+
+// ESTABA IMPLEMENTADO PERO LO SAQUE
+
+
 let navDonaciones = document.getElementById('navDona');
 
 
