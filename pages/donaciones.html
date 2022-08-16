@@ -8,34 +8,37 @@
     <script src="https://kit.fontawesome.com/df59baf6b8.js" crossorigin="anonymous"></script>
     <link rel="preconnect" href="https://fonts.gstatic.com">
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://unpkg.com/jam-icons/css/jam.min.css">
     <link rel="shortcut icon" href="../img/6.jpg">
     <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/toastify-js/src/toastify.min.css">
+
     <link rel="stylesheet" href="../css/donaciones.css">
     
 </head>
 <body>
-
     <nav class="navbar">
-        <div>
-            <ul class="navbar1">
-                <li><a class="link" href="../index.html">HOME</a></li>
-                <li><a class="link" href="">REWARDS</a></li>
-                <li><a class="link" href="">RULES</a></li>
-                <li><a class="link" href="./donaciones.html">DONATION</a></li>
-                <li><a class="link" href="">SUPPORT</a></li>
-            </ul>
-        </div>
-        
-        <div>
-            <ul class="redessociales">
-                <li><a class="redes1" href="https://www.facebook.com/"><img class="redes" src="../img/redes/facebook.png" alt="facebook"></a></li>
-                <li><a class="redes1" href="https://www.twitter.com/"><img class="redes" src="../img/redes/gorjeo.png" alt="twitter"></a></li>
-                <li><a class="redes1" href="https://www.instagram.com/"><img class="redes" src="../img/redes/instagram.png" alt="instagram"></a></li>
-                <li><a class="redes1" href="https://www.twitch.com/"><img class="redes" src="../img/redes/twitch.png" alt="twitch"></a></li>
-                <li><a class="redes1" href="https://www.youtube.com/"><img class="redes" src="../img/redes/youtube.png" alt="youtube"></a></li>
-            </ul>
-        </div>
-        
+        <a class="header-open" href="#lateral"><span class="jam jam-menu"></span></a>
+            <div>
+                <ul  id="lateral" class="navbar1">
+                    <li><a class="link" href="../index.html">HOME</a></li>
+                    <li><a class="link" href="">REWARDS</a></li>
+                    <li><a class="link" href="">RULES</a></li>
+                    <li><a class="link" href="./donaciones.html">DONATION</a></li>
+                    <li><a class="link" href="">SUPPORT</a></li>
+                    <li><a class="boton-cerrar link" href="">⬅</a></li>
+                </ul>
+            </div>
+            
+            <div>
+                <ul class="navbar2 redessociales">
+                    <li><a class="redes1" href="https://www.facebook.com/"><img class="redes" src="../img/redes/facebook.png" alt="facebook"></a></li>
+                    <li><a class="redes1" href="https://www.twitter.com/"><img class="redes" src="../img/redes/gorjeo.png" alt="twitter"></a></li>
+                    <li><a class="redes1" href="https://www.instagram.com/"><img class="redes" src="../img/redes/instagram.png" alt="instagram"></a></li>
+                    <li><a class="redes1" href="https://www.twitch.com/"><img class="redes" src="../img/redes/twitch.png" alt="twitch"></a></li>
+                    <li><a class="redes1" href="https://www.youtube.com/"><img class="redes" src="../img/redes/youtube.png" alt="youtube"></a></li>
+                </ul>
+            </div>
+
         <button id="boton-carrito"> <i class="fas fa-shopping-cart"></i><span id="contadorCarrito">0</span></button>
 
     </nav>
@@ -47,7 +50,7 @@
     </header>
 
     <div class="buscador">
-        <input type="text" placeholder="  Search for desired product" id="formulario" class="inputBuscar">
+        <input type="text" placeholder="Search for product" id="formulario" class="inputBuscar">
         <button id="botonBuscar" class="boton-buscar">Search</button>
         <ul id="resultadosBusqueda">
         </ul>

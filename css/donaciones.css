@@ -362,9 +362,25 @@ body{
     font-size: 80px;
 }
 
+.header-open{
+    display: none;
+}
+
+.boton-cerrar{
+    display: none;
+}
 
 /* MEDIA QUERY */
+
+@media screen and (max-width: 1023px) {
+
+    
+    
+}
+
 @media only screen and (max-width: 600px) {
+
+    
 
     .headerdona{
         min-height: auto;
@@ -382,20 +398,40 @@ body{
         align-items: center;        
     }
 
+    .inputBuscar{
+        margin-bottom: 15px;
+        text-align: center;
+    }
+
     .boton-buscar{
-            font-size: 15px;
-            width: 30%;        
+        font-size: 15px;
+        width: 30%;        
     }
 
     #contenedor-productos{
-        display: flex;
-        flex-direction: column;
-        justify-content: center;
-        align-items: center;
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .img1{
+        width: 100%;  
+    }
+
+    .card-tittle{
+        font-size: 13px;
+    }
+
+    .card-text{
+        font-size: 10px;
+    }
+    
+    .btn{
+        font-size: 10px;
+        position: sticky;
     }
 
     .producto{
-    max-width: 80%;
+        max-width: 100%;
     }
 
 
@@ -407,18 +443,68 @@ body{
     }
 
     .modal-contenedor{
-        width: auto;
+        width: auto; 
+        
     }
+    
+    .modal-carrito{
+        position: relative;
+        background-color: white;
+        height: 350px;
+        max-width: 20px;
+        line-height: 1.5;
+    }
+    
 
    .boton-eliminar {
-    display: flex;
-    flex-direction: column;
-    color: red;
-    border: none;
-    font-size: 20px;
-}
+        display: flex;
+        flex-direction: column;
+        color: red;
+        border: none;
+        font-size: 20px;
+    }
 
 
+    .navbar1{
+        display: none;
+    }
+
+    .navbar2{
+        display: none;
+    }
+
+    .header-open{
+        display: block;
+        font-size: 50px;
+        list-style: none;
+        text-decoration: none;
+        color: white;
+    }
+
+    #lateral{
+        display: block;
+        background-color: rgb(0, 0, 0, 0.8);
+        width: 40%;
+        height: 50vh;
+        position: fixed;
+        top: 0;
+        left: -100%;
+        line-height: 2.5;
+        z-index: 100;
+        transition: all 0.5s;
+    }
+
+    #lateral:target{
+        left: 0;
+    }
+
+    #boton-carrito{
+        font-size: 20px;
+    }
+
+    .boton-cerrar{
+        display: block;
+    }
 
 
 
