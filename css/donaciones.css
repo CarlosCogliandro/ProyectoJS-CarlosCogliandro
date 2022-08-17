@@ -52,21 +52,19 @@ body{
 }
 
 .headerdona{
-    display: flex;
-    flex-direction: column;
-    justify-content: space-around;
-    align-items: center;
+   
+    
     background-image: url(../img/donaheader.jpg);
-    background-size: 100%;
-    height: 600px;
-    margin: 10px;
+    height: 100vh;
     border-radius: 40px;
 }
 
 .headerdona h1{
+    line-height: 200px;
+    text-align: center;
     font-size: 80px;
     color: white;
-    padding-top: 80px;
+    padding-top: 50px;
     font-family: cursive;
     transition: 0.4s;
 }
@@ -77,16 +75,17 @@ body{
 }
 
 .headerdona h4{
+    line-height: 200px;
     font-size: 30px;
     text-align: center;
     color: wheat;
 }
 
 .headerdona h6{
+    line-height: 200px;
     font-size: 20px;
     text-align: center;
     color: rgb(229, 182, 182);
-    padding: 0px 300px;
 }
 
 #boton-carrito {
@@ -110,7 +109,7 @@ body{
 }
 
 #contenedor-productos {
-    max-width: 1200px;
+    
     margin: 60px auto;
     display: flex;
     justify-content: space-between;
@@ -118,7 +117,7 @@ body{
 }
 
 .producto {
-    max-width: 20%;
+    width: 200px;
     padding: 10px;
     margin: 10px;
     margin-bottom: 20px;
@@ -149,7 +148,6 @@ body{
 }
 
 .boton-finalizar{
-    
     color: rgb(246, 246, 246);
     background-color: rgb(196, 66, 66);
     font-size: 18px;
@@ -180,7 +178,7 @@ body{
     top: 0;
     width: 100%;
     height: 100vh;
-    background-color: rgba(0, 0, 0, 0.3);
+    background-color: rgba(0, 0, 0, 0.5);
     display: flex;
     justify-content: center;
     align-items: center;
@@ -269,17 +267,14 @@ body{
 }
 
 .img1{
-    width: 50%;
+    width: 8rem;
 }
 
 .card{
-    border-radius: 10px;
-    margin: 5px;
-    padding: 5px;
     font-weight: bold;
     text-shadow: 3px 2px 10px red;
     color: white;
-    line-height: 2.5;
+    line-height: 1.8;
     text-align: center;
 }
 
@@ -372,24 +367,29 @@ body{
 
 /* MEDIA QUERY */
 
-@media screen and (max-width: 1023px) {
 
-    
-    
-}
 
 @media only screen and (max-width: 600px) {
 
-    
-
     .headerdona{
-        min-height: auto;
         background-size: auto;
         background-position: -700px 0px;
     }
 
     .headerdona h1{
-        font-size: 35px;
+        font-size: 38px;
+    }
+
+    .headerdona h4{
+        font-size: 24px;
+        line-height: 1.5;
+    }
+
+    .headerdona h6{
+        font-size: 18px;
+        line-height: 1;
+        padding-top: 50px;
+
     }
 
     .buscador{
@@ -413,8 +413,12 @@ body{
         grid-template-columns: repeat(2, 1fr);
     }
 
+    .producto{
+        width: auto
+    }
+
     .img1{
-        width: 100%;  
+        width: 80px;
     }
 
     .card-tittle{
@@ -426,35 +430,44 @@ body{
     }
     
     .btn{
+        margin-top: 10px;
         font-size: 10px;
-        position: sticky;
     }
-
-    .producto{
-        max-width: 100%;
-    }
-
 
     .productoEnCarrito{
-        width: 100%;
+        margin-bottom: 15px;
+        width: auto;
         display: flex;
         flex-direction: column;
-        
+    }
+
+    .productoEnCarrito p{
+        padding-left: 10px;
+    }
+
+    .productoEnCarrito button{
+        padding-left: 35px;
+    }
+
+    .img2{
+        margin-left: 20px;
     }
 
     .modal-contenedor{
-        width: auto; 
-        
+        width: auto;
     }
+    
     
     .modal-carrito{
-        position: relative;
-        background-color: white;
         height: 350px;
-        max-width: 20px;
-        line-height: 1.5;
+        line-height: 1.8;
+        overflow-y: scroll;
+        border-radius: 0;
     }
     
+    .boton-agregar{
+        margin: 12px;
+    }
 
    .boton-eliminar {
         display: flex;
@@ -506,6 +519,13 @@ body{
         display: block;
     }
 
+    .toast{
+        font-size: 15px;
+    }
+
+    .toastdelete{
+        font-size: 15px;
+    }
 
 
 }

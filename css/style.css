@@ -388,6 +388,8 @@ body{
     
     .header{
         min-height: 1100px;
+        background-size: auto;
+        background-position: -850px 0px;
     }
 
     .h6header{
@@ -414,16 +416,33 @@ body{
         width: auto;
     }
 
+    .twitch{
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .vote{
+        width: auto;
+        margin-top: 30px;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+    }
+
     .imgtwitch{
         display: flex;
         flex-direction: column;
         justify-content: center;
-        
+        align-items: center;
     }
 
     .imgtwitch1{
-        width: 170px;
-        height: 250px;
+        margin: 10px;
+        width: 210px;
+        height: 200px;
     }
 
 

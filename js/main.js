@@ -41,7 +41,7 @@ function mostrarProducto(producto) {
     const div = document.createElement('div');
     div.classList.add('producto');
     div.innerHTML = `<div class="card">
-                <img src="${producto.img}" class="img1 card-img-top" alt="..."></img>
+                <img src="${producto.img}" class="img1" alt="..."></img>
                 <div class="card-body">
                 <h5 class="card-tittle">${producto.nombre}</h5>
                 <p id="stock" class="card-text">${producto.detalle}</p>
